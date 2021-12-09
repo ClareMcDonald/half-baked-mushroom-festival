@@ -88,6 +88,12 @@ function displayFriends() {
                 //             then display your friends and mushrooms with the updated state
                 displayFriends();
                 displayMushrooms();
+            } else if (friend.satisfaction < 3 && mushroomCount === 0) {
+                alert('Forage for more mushrooms!');
+            
+                displayFriends();
+                displayMushrooms();
+
             }
             // append the friendEl to the friends list in DOM
         });
