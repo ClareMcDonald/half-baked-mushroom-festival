@@ -39,6 +39,12 @@ addFriendButton.addEventListener('click', () => {
         satisfaction: 1
     };
 
+    if (newFriend.name === '') {
+        const randomFriend = ['Blingbob', 'Coolguy', 'Mabel', 'Lufton', 'Jermonifun'];
+        let i = Math.floor(Math.random() * 3);
+        newFriend.name = randomFriend[i];
+    } 
+    
     // push it into the friends state array, passed in as an argument
     friendData.push(newFriend);
 
