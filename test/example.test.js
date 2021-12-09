@@ -3,14 +3,14 @@
 
 const test = QUnit.test;
 
-test('time to test a function', (expect) => {
+test('renderMushroom should return a div', (expect) => {
     //Arrange
     // Set up your arguments and expectations
-    const expected = true;
+    const expected = actual.outerHTML;
     
     //Act 
     // Call the function you're testing and set the result to a const
-    const actual = true;
+    const actual = document.createElement('div');
 
     //Expect
     // Make assertions about what is expected versus the actual result
