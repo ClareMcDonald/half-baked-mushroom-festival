@@ -1,6 +1,6 @@
 // import functions and grab DOM elements
 import { renderMushroom, renderFriend } from './render-utils.js';
-import findFriendByName from './data-utils.js';
+// import findFriendByName from './data-utils.js';
 
 const friendsEl = document.querySelector('.friends');
 const friendInputEl = document.getElementById('friend-input');
@@ -33,19 +33,17 @@ const friendData = [
 
 addFriendButton.addEventListener('click', () => {
     // get the name from the input
-    const name = friendInputEl.textContent;
-
     // create a new friend object
-    const nameObj = {
-        name: name,
+    const newFriend = {
+        name: friendInputEl.value,
         satisfaction: 1
     };
 
     // push it into the friends state array, passed in as an argument
-    friendsEl.push(nameObj);
+    friendData.push(newFriend);
 
     // reset the input
-    friendInputEl.textcontent = '';
+    friendInputEl.value = '';
     // display all the friends (use a function here)
     displayFriends();
 });
@@ -74,17 +72,20 @@ function displayFriends() {
         //     add an event listener to each friend
         friendEl.addEventListener('click', () => {
 
-        //         on click, go find the clicked friend in state
-            findFriendByName();
-        //         and if the friend's satisfaction level is below 3 and you have mushrooms left
-        //             increment the friends satisfaction and decrement your mushrooms
-            friendData.name.satisfaction++;
-            mushroomCount--;
-        //             then display your friends and mushrooms with the updated state
-            displayFriends();
-            displayMushrooms();
-        });
+            //         on click, go find the clicked friend in state
+            //findFriendByName();
+            if (friend.satisfaction < 3 && mushroomCount > 0) { 
+            //         and if the friend's satisfaction level is below 3 and you have mushrooms left
+            //             increment the friends satisfaction and decrement your mushrooms
+                friend.name.satisfaction++;
+                mushroomCount--;
+            //             then display your friends and mushrooms with the updated state
+                displayFriends();
+                displayMushrooms();
+            }
         // append the friendEl to the friends list in DOM
+            friendEl.append(friend);
+        });
     }
     
 }
@@ -92,9 +93,11 @@ function displayFriends() {
 
 function displayMushrooms() { 
     // clear out the mushroom div
+    mushroomsEl.textContent = '';
 
     for (let i = 0; i < mushroomCount; i++) { 
         // for each mushroom in your mushroom state, render and append a mushroom
+        mushroomsEl.textContent = renderMushroom();
     }
 }
 
