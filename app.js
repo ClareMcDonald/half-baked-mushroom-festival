@@ -74,22 +74,21 @@ function displayFriends() {
 
             //         on click, go find the clicked friend in state
             //findFriendByName();
-            if (friend.satisfaction < 3 && mushroomCount > 0) { 
-            //         and if the friend's satisfaction level is below 3 and you have mushrooms left
-            //             increment the friends satisfaction and decrement your mushrooms
+            if (friend.satisfaction < 3 && mushroomCount > 0) {
+                //         and if the friend's satisfaction level is below 3 and you have mushrooms left
+                //             increment the friends satisfaction and decrement your mushrooms
                 friend.name.satisfaction++;
                 mushroomCount--;
-            //             then display your friends and mushrooms with the updated state
+                //             then display your friends and mushrooms with the updated state
                 displayFriends();
                 displayMushrooms();
             }
-        // append the friendEl to the friends list in DOM
-            friendEl.append(friend);
+            // append the friendEl to the friends list in DOM
         });
+        
+        friendsEl.append(friendEl);
     }
-    
 }
-
 
 function displayMushrooms() { 
     // clear out the mushroom div
@@ -97,7 +96,8 @@ function displayMushrooms() {
 
     for (let i = 0; i < mushroomCount; i++) { 
         // for each mushroom in your mushroom state, render and append a mushroom
-        mushroomsEl.textContent = renderMushroom();
+        const mushroom = renderMushroom();
+        mushroomsEl.append(mushroom);
     }
 }
 
