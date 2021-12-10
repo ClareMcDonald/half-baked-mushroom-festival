@@ -23,12 +23,15 @@ test('renderMushroom should return a div', (expect) => {
 });
 
 
-test('findFriendByName should return a name', (expect) => {
-    
+test('findFriendByName should take in a name and an array, and return the name', (expect) => {
 
-    const expected = friends.name;
+
+    const expected = friends[name];
+                
 
     const actual = findFriendByName();
 
-    expect.actual(actual.outerHTML, expected.outerHTML);
+    expect.equal(actual, expected);
 });
+
+console.log(findFriendByName());
