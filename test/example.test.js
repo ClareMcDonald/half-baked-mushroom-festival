@@ -2,6 +2,7 @@
 // import { example } from '../example.js';
 
 import { renderMushroom } from '../render-utils.js';
+import { findFriendByName } from '../data-utils.js';
 
 const test = QUnit.test;
 
@@ -19,4 +20,15 @@ test('renderMushroom should return a div', (expect) => {
     //Expect
     // Make assertions about what is expected versus the actual result
     expect.equal(actual.outerHTML, expected.outerHTML);
+});
+
+
+test('findFriendByName should return a name', (expect) => {
+    
+
+    const expected = friends.name;
+
+    const actual = findFriendByName();
+
+    expect.actual(actual.outerHTML, expected.outerHTML);
 });

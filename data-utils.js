@@ -1,4 +1,4 @@
-export default function findFriendByName(name, friends) {
+export function findFriendByName(name, friends) {
     // iterate through the friends
     for (let name of friends) {
         if (friends.name === name) {
